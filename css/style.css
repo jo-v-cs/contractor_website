@@ -35,6 +35,12 @@ li > a {
     font-size: 1.1em;
 }
 
+/* Footer styling */
+
+#footer {
+    position: absolute;
+}
+
 @media screen and (min-width: 800px) {
 
 }
