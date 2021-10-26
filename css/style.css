@@ -18,15 +18,16 @@ nav {
 
 nav > ul {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     list-style: none;
+    padding: 0 10px 0 10px;
 }
 
 nav > ul > li {
     display: inline;
     line-height: 50px;
     height: 50px;
-    margin: auto;
+    margin: 0;
 }
 
 li > a {
