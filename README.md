@@ -1,4 +1,4 @@
-# Contract Website
+# Contractor Website
 
 This is a website that will be built as a model for a music contracting service in which users may submit forms requesting specific types of groups, musical requests, gig info and 
 any other relevant information. This site will also contain information about some of the potential contracted musicians that may be hired as well as an overview of 
