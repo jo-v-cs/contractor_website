@@ -37,6 +37,11 @@ li > a {
 }
 
 /* Style hamburger links */
+
+#ham-menu {
+    display: none;
+}
+
 #ham-menu > ul {
     list-style: none;
     line-height: 50px;
@@ -46,7 +51,6 @@ li > a {
 }
 
 #ham-menu > ul > li {
-    display: none;
     background-color: aliceblue;
     text-align: center;
     border: 1px solid black;
