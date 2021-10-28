@@ -65,4 +65,19 @@ li > a {
 
 @media screen and (min-width: 800px) {
 
+#ham-button {
+    display: none;
+}
+
+#ham-menu {
+    display: block;
+}
+
+#ham-menu > ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0;
+}
+
 }

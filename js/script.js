@@ -1,4 +1,6 @@
 'use strict';
+
+// Hamburger menu functionality
 let button = document.getElementById('ham-button');
 button.addEventListener('click', function() {
     let hamMenu = document.getElementById('ham-menu');
