@@ -75,6 +75,7 @@ li > a {
     position: absolute;
 }
 
+/* Media Query for medium screen size */
 @media screen and (min-width: 800px) {
 
 
@@ -99,5 +100,10 @@ li > a {
     border: none;
 }
 
+
+}
+
+/* Media Query for large screen size */
+@media screen and (min-width: 1040px) {
 
 }
