@@ -77,6 +77,10 @@ li > a {
 
 /* Form element formatting */
 
+fieldset {
+    justify-self: center;
+}
+
 form {
     display: table;
 }
