@@ -75,6 +75,16 @@ li > a {
     position: absolute;
 }
 
+/* Form element formatting */
+
+form {
+    display: table;
+}
+
+form > label {
+    display: table-row;
+}
+
 /* Media Query for medium screen size */
 @media screen and (min-width: 800px) {
 
