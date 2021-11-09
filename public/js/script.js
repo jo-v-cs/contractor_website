@@ -11,3 +11,5 @@ button.addEventListener('click', function() {
         hamMenu.style.display = 'none';
     }
 });
+
+// Script

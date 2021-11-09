@@ -9,6 +9,7 @@ app.use(express.json());
 // Automatically return static files
 app.use(express.static("public"));
 
+// Routes
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, "template.html"));
 });
@@ -18,6 +19,10 @@ app.get('/request', (req, res) => {
 });
 
 app.get('/about', (req, res) => {
+    res.sendFile(path.join(__dirname, "about.html"));
+});
+
+app.get('/login', (req, res) => {
     res.sendFile(path.join(__dirname, "about.html"));
 });
 
