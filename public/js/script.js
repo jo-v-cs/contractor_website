@@ -12,4 +12,3 @@ button.addEventListener('click', function() {
     }
 });
 
-// Script
