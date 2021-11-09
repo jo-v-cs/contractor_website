@@ -1,17 +1,18 @@
 const express = require('express');
 const app = express();
 const port = 3000;
-const router = express.Router();
+const path = require('path');
 
 // Handle JSON requests
 app.use(express.json());
 
+// Automatically return static files
+app.use(express.static("public"));
 
-router.get('/', (req, res) => {
-    res.render('/index.html');
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, "template.html"));
 });
 
-app.use('/', router);
 app.listen(port, () => {
     console.log(`Contractor Website listening at http://localhost:${port}`);
 })
