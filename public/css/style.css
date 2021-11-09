@@ -81,7 +81,7 @@ form {
     display: table;
 }
 
-form > label {
+label {
     display: table-row;
 }
 
