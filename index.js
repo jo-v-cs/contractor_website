@@ -9,20 +9,26 @@ app.use(express.json());
 // Automatically return static files
 app.use(express.static("public"));
 
+// Use router object
+let router = express.Router();
+
 // Routes
-app.get('/', (req, res) => {
+router.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, "template.html"));
 });
 
-app.get('/request', (req, res) => {
+router.get('/request', (req, res) => {
     res.sendFile(path.join(__dirname, "request.html"));
 });
+router.post('/request', (req, res) => {
+    let name = req.body.name;
+});
 
-app.get('/about', (req, res) => {
+router.get('/about', (req, res) => {
     res.sendFile(path.join(__dirname, "about.html"));
 });
 
-app.get('/login', (req, res) => {
+router.get('/login', (req, res) => {
     res.sendFile(path.join(__dirname, "about.html"));
 });
 
