@@ -14,22 +14,22 @@ let router = express.Router();
 
 // Routes
 router.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, "template.html"));
+    res.status(200).sendFile(path.join(__dirname, "template.html"));
 });
 
 router.get('/request', (req, res) => {
-    res.sendFile(path.join(__dirname, "request.html"));
+    res.status(200).sendFile(path.join(__dirname, "request.html"));
 });
 router.post('/request', (req, res) => {
     let name = req.body.name;
 });
 
 router.get('/about', (req, res) => {
-    res.sendFile(path.join(__dirname, "about.html"));
+    res.status(200).sendFile(path.join(__dirname, "about.html"));
 });
 
 router.get('/login', (req, res) => {
-    res.sendFile(path.join(__dirname, "about.html"));
+    res.status(200).sendFile(path.join(__dirname, "about.html"));
 });
 
 app.listen(port, () => {
