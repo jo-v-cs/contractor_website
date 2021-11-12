@@ -19,12 +19,16 @@ let router = express.Router();
 router.get('/', (req, res) => {
     res.status(200).sendFile(path.join(__dirname, "template.html"));
 });
+router.post('/', (req, res) => {
+    res.send("Received POST request");
+})
 
 router.get('/request', (req, res) => {
     res.status(200).sendFile(path.join(__dirname, "request.html"));
 });
 router.post('/request', (req, res) => {
-    let name = req.body.name;
+    const body = req.body;
+    res.send(body);
 });
 
 router.get('/about', (req, res) => {
