@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 const port = 3000;
 const path = require('path');
+//const http = require('http');
+
 let contractRepo = require('./repos/contractRepo');
 
 let contracts = contractRepo.get();
@@ -12,30 +14,27 @@ app.use(express.json());
 // Automatically return static files
 app.use(express.static("public"));
 
-// Use router object
-let router = express.Router();
-
 // Routes
-router.get('/', (req, res) => {
+app.get('/', (req, res) => {
     res.status(200).sendFile(path.join(__dirname, "template.html"));
 });
-router.post('/', (req, res) => {
+app.post('/', (req, res) => {
     res.send("Received POST request");
-})
+});
 
-router.get('/request', (req, res) => {
+app.get('/request', (req, res) => {
     res.status(200).sendFile(path.join(__dirname, "request.html"));
 });
-router.post('/request', (req, res) => {
+app.post('/request', (req, res) => {
     const body = req.body;
     res.send(body);
 });
 
-router.get('/about', (req, res) => {
+app.get('/about', (req, res) => {
     res.status(200).sendFile(path.join(__dirname, "about.html"));
 });
 
-router.get('/login', (req, res) => {
+app.get('/login', (req, res) => {
     res.status(200).sendFile(path.join(__dirname, "about.html"));
 });
 
