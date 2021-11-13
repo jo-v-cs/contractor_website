@@ -2,7 +2,8 @@ const express = require('express');
 const app = express();
 const port = 3000;
 const path = require('path');
-//const http = require('http');
+const fs = require('fs');
+const bodyParser = require('body-parser');
 
 let contractRepo = require('./repos/contractRepo');
 
@@ -10,6 +11,8 @@ let contracts = contractRepo.get();
 
 // Handle JSON requests
 app.use(express.json());
+
+app.use(express.urlencoded({ extended: true }));
 
 // Automatically return static files
 app.use(express.static("public"));
@@ -27,7 +30,9 @@ app.get('/request', (req, res) => {
 });
 app.post('/request', (req, res) => {
     const body = req.body;
-    res.send(body);
+    let order = JSON.stringify(body);
+    fs.writeFileSync('./db/db.json', order);
+    res.send(order);
 });
 
 app.get('/about', (req, res) => {
