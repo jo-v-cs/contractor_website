@@ -32,8 +32,21 @@ app.post('/request', (req, res) => {
     const body = req.body;
     let order = JSON.stringify(body);
     fs.writeFileSync('./db/db.json', order);
-    res.send(order);
+    res.send(`Added ${order}`);
 });
+
+app.get('/request/orderData', (req, res) => {
+    // Read db file
+    fs.readFile('db/db.json', 'utf8', (err, data) => {
+        if (err) {
+            console.error(err);
+            res.status(404).send();
+        }
+        else {
+            res.send(data);
+        }
+    })
+})
 
 app.get('/about', (req, res) => {
     res.status(200).sendFile(path.join(__dirname, "about.html"));
