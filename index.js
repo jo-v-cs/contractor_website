@@ -43,7 +43,7 @@ app.get('/request/orderData', (req, res) => {
             res.status(404).send();
         }
         else {
-            res.send(data);
+            res.status(200).send(data);
         }
     })
 })

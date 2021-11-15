@@ -1,8 +1,7 @@
 'use strict';
-const axios = require('axios');
 
 document.getElementById('order').onsubmit = function(event) {
-    //event.preventDefault(); // Prevent page refresh
+    event.preventDefault(); // Prevent default behavior
     const formData = new FormData(document.getElementById('order'));
     let orderObj = {
         name: formData.get("name"),
@@ -10,12 +9,12 @@ document.getElementById('order').onsubmit = function(event) {
         comments: formData.get("comments")
     }
     console.log(orderObj);
-    /*axios
+    axios
         .post('/request', orderObj)
         .then((response) => {
             console.log(response);
         })
         .catch((error) => {
             console.log(error);
-        })*/
+        });
 };
