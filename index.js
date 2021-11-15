@@ -4,6 +4,13 @@ const port = 3000;
 const path = require('path');
 const fs = require('fs');
 const bodyParser = require('body-parser');
+const low = require('lowdb');
+const FileSync = require('lowdb/adapters/FileSync');
+const lodash = require('lodash-id');
+
+// Lowdb
+const adapter = new FileSync('db/db.json');
+const db = low(adapter);
 
 let contractRepo = require('./repos/contractRepo');
 
