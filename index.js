@@ -48,17 +48,18 @@ app.post('/request', (req, res) => {
 
 app.get('/request/orderData', (req, res) => {
     // Read db file
-    const orders = [];
+    let orders = [];
     let currentOrder = {};
     db.all(`SELECT * FROM orders`, (err, rows) => {
         if (rows) {
-            rows.forEach((row, i) => {
+            rows.forEach((row) => {
                 currentOrder.name = row.name;
                 currentOrder.email = row.email;
                 currentOrder.genre = row.genre;
                 currentOrder.numPlayers = row.numPlayers;
                 currentOrder.quote = row.quote;
                 orders.push(currentOrder);
+                console.log(orders);
             });
         }
         res.send(orders);
