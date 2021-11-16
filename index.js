@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 
 // Sqlite3
 var sqlite3 = require('sqlite3').verbose();
-var db = new sqlite3.Database('orders.db');
+var db = new sqlite3.Database('db//orders.db');
 // Avoid race condition
 db.serialize(function() {
     db.run(`CREATE TABLE orders(name,
