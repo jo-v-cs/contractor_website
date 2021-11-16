@@ -20,9 +20,6 @@ db.serialize(function() {
                 quote TEXT)`);
 });
 
-let contractRepo = require('./repos/contractRepo');
-let contracts = contractRepo.get();
-
 // Handle JSON requests
 app.use(express.json());
 
@@ -44,7 +41,6 @@ app.get('/request', (req, res) => {
 });
 app.post('/request', (req, res) => {
     const order = req.body;
-    //fs.writeFileSync('./db/db.json', order);
     db.run(`INSERT INTO orders(name, email, genre, numPlayers, quote)
             VALUES ("${order.name}", "${order.email}", "${order.genre}", "${order.numPlayers}", "${order.quote}")`);
     res.send(`Added new order`);
