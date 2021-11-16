@@ -6,7 +6,7 @@ services.
 
 This project is being built to fulfill the requirements of Code Louisville's JavaScript course and will implement the following features:
 
-## To use
+## To start node server
 `'npm start'`
 or
 `'node index.js'`
