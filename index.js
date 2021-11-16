@@ -6,11 +6,14 @@ const fs = require('fs');
 const bodyParser = require('body-parser');
 const low = require('lowdb');
 const FileSync = require('lowdb/adapters/FileSync');
-const lodash = require('lodash-id');
+const lodashId = require('lodash-id');
 
 // Lowdb
 const adapter = new FileSync('db/db.json');
 const db = low(adapter);
+db._.mixin(lodashId);
+db.defaults({ orders: [] });
+db.read(); // read data from json file
 
 let contractRepo = require('./repos/contractRepo');
 
