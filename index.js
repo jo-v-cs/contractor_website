@@ -55,20 +55,22 @@ app.get('/request/orderData', (req, res) => {
     const orders = [];
     let currentOrder = {};
     db.all(`SELECT * FROM orders`, (err, rows) => {
-        rows.forEach((row, i) => {
-            currentOrder.name = row.name;
-            currentOrder.email = row.email;
-            currentOrder.genre = row.genre;
-            currentOrder.numPlayers = row.numPlayers;
-            currentOrder.quote = row.quote;
-            orders.push(currentOrder);
-        });
+        if (rows) {
+            rows.forEach((row, i) => {
+                currentOrder.name = row.name;
+                currentOrder.email = row.email;
+                currentOrder.genre = row.genre;
+                currentOrder.numPlayers = row.numPlayers;
+                currentOrder.quote = row.quote;
+                orders.push(currentOrder);
+            });
+        }
         res.send(orders);
     });
 });
 // Delete all entries in order table
 app.delete('/request/orderData', (req, res) =>  {
-    db.run(`DELETE * FROM orders`);
+    db.run(`DELETE FROM orders`);
     res.status(204).send();
 });
 
