@@ -6,16 +6,21 @@ services.
 
 This project is being built to fulfill the requirements of Code Louisville's JavaScript course and will implement the following features:
 
+## To use
+`'npm start'`
+or
+`'node index.js'`
+
 ### Complete: 
 - Create a web server with at least one route and connect to it from your application using ExpressJS
 - Create a form and save the values (on click of Submit button) to an external file (implemented with sqlite3)
 - Create an array, dictionary or list, populate it with multiple values, retrieve at least one value, and use or display it in your application
 
 ### WIP
-
+- Quote creation: Create and use a function that accepts two or more values (parameters), calculates or determines a new value based on those inputs, and returns a new value
 
 ### Proposed:
 
 - Implement a log that records errors, invalid inputs, or other important events and writes them to a text file
 - Create 3 or more unit tests for your application (and document how to run them)
-- Create and use a function that accepts two or more values (parameters), calculates or determines a new value based on those inputs, and returns a new value
+

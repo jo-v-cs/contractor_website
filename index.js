@@ -18,7 +18,7 @@ db.serialize(function() {
                 genre TEXT,
                 numPlayers TEXT,
                 quote TEXT)`);
-})
+});
 
 let contractRepo = require('./repos/contractRepo');
 let contracts = contractRepo.get();
