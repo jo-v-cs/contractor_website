@@ -12,9 +12,9 @@ or
 `'node index.js'`
 
 ### Complete: 
-- Create a web server with at least one route and connect to it from your application using ExpressJS
+- Create a web server with at least one route and connect to it from your application using ExpressJS (application run on Express.js)
 - Create a form and save the values (on click of Submit button) to an external file (implemented with sqlite3)
-- Create an array, dictionary or list, populate it with multiple values, retrieve at least one value, and use or display it in your application
+- Create an array, dictionary or list, populate it with multiple values, retrieve at least one value, and use or display it in your application (order data retrieved from SQL database stored in array before being sent to client)
 
 ### WIP
 - Quote creation: Create and use a function that accepts two or more values (parameters), calculates or determines a new value based on those inputs, and returns a new value
