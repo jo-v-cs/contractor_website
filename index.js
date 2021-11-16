@@ -10,11 +10,14 @@ var sqlite3 = require('sqlite3').verbose();
 var db = new sqlite3.Database('db//orders.db');
 // Avoid race condition
 db.serialize(function() {
-    db.run(`CREATE TABLE orders(name,
-        email,
-        genre,
-        numPlayers,
-        quote)`)
+    db.run(`CREATE TABLE 
+            IF NOT EXISTS orders(
+                id INTEGER PRIMARY KEY,
+                name,
+                email,
+                genre,
+                numPlayers,
+                quote)`);
 })
 
 let contractRepo = require('./repos/contractRepo');
@@ -42,7 +45,8 @@ app.get('/request', (req, res) => {
 app.post('/request', (req, res) => {
     const body = req.body;
     let order = JSON.stringify(body);
-    fs.writeFileSync('./db/db.json', order);
+    //fs.writeFileSync('./db/db.json', order);
+
     res.send(`Added ${order}`);
 });
 
