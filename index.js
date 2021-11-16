@@ -13,11 +13,11 @@ db.serialize(function() {
     db.run(`CREATE TABLE 
             IF NOT EXISTS orders(
                 id INTEGER PRIMARY KEY,
-                name,
-                email,
-                genre,
-                numPlayers,
-                quote)`);
+                name TEXT,
+                email TEXT,
+                genre TEXT,
+                numPlayers TEXT,
+                quote TEXT)`);
 })
 
 let contractRepo = require('./repos/contractRepo');
@@ -43,25 +43,34 @@ app.get('/request', (req, res) => {
     res.status(200).sendFile(path.join(__dirname, "request.html"));
 });
 app.post('/request', (req, res) => {
-    const body = req.body;
-    let order = JSON.stringify(body);
+    const order = req.body;
     //fs.writeFileSync('./db/db.json', order);
-
-    res.send(`Added ${order}`);
+    db.run(`INSERT INTO orders(name, email, genre, numPlayers, quote)
+            VALUES ("${order.name}", "${order.email}", "${order.genre}", "${order.numPlayers}", "${order.quote}")`);
+    res.send(`Added new order`);
 });
 
 app.get('/request/orderData', (req, res) => {
     // Read db file
-    fs.readFile('db/db.json', 'utf8', (err, data) => {
-        if (err) {
-            console.error(err);
-            res.status(404).send();
-        }
-        else {
-            res.status(200).send(data);
-        }
-    })
-})
+    const orders = [];
+    let currentOrder = {};
+    db.all(`SELECT * FROM orders`, (err, rows) => {
+        rows.forEach((row, i) => {
+            currentOrder.name = row.name;
+            currentOrder.email = row.email;
+            currentOrder.genre = row.genre;
+            currentOrder.numPlayers = row.numPlayers;
+            currentOrder.quote = row.quote;
+            orders.push(currentOrder);
+        });
+        res.send(orders);
+    });
+});
+// Delete all entries in order table
+app.delete('/request/orderData', (req, res) =>  {
+    db.run(`DELETE * FROM orders`);
+    res.status(204).send();
+});
 
 app.get('/about', (req, res) => {
     res.status(200).sendFile(path.join(__dirname, "about.html"));
