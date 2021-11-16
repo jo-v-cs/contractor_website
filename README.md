@@ -10,7 +10,7 @@ This project is being built to fulfill the requirements of Code Louisville's Jav
 - Create a web server with at least one route and connect to it from your application using ExpressJS
 
 ### WIP
-- Create a form and save the values (on click of Submit button) to an external file (implemented with lowdb/lodash-id)
+- Create a form and save the values (on click of Submit button) to an external file (implemented with sqlite3)
 
 ### Proposed:
 - Create an array, dictionary or list, populate it with multiple values, retrieve at least one value, and use or display it in your application
