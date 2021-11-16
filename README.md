@@ -7,12 +7,13 @@ services.
 This project is being built to fulfill the requirements of Code Louisville's JavaScript course and will implement the following features:
 
 ### Complete: 
-- Work in Progress
+- Create a web server with at least one route and connect to it from your application using ExpressJS
+
+### WIP
+- Create a form and save the values (on click of Submit button) to an external file (implemented with lowdb/lodash-id)
 
 ### Proposed:
-- Create a form and save the values (on click of Submit button) to an external file 
 - Create an array, dictionary or list, populate it with multiple values, retrieve at least one value, and use or display it in your application
 - Implement a log that records errors, invalid inputs, or other important events and writes them to a text file
 - Create 3 or more unit tests for your application (and document how to run them)
 - Create and use a function that accepts two or more values (parameters), calculates or determines a new value based on those inputs, and returns a new value
-- Create a web server with at least one route and connect to it from your application using ExpressJS
