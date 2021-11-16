@@ -4,19 +4,20 @@ const port = 3000;
 const path = require('path');
 const fs = require('fs');
 const bodyParser = require('body-parser');
-const low = require('lowdb');
-const FileSync = require('lowdb/adapters/FileSync');
-const lodashId = require('lodash-id');
 
-// Lowdb
-const adapter = new FileSync('db/db.json');
-const db = low(adapter);
-db._.mixin(lodashId);
-db.defaults({ orders: [] });
-db.read(); // read data from json file
+// Sqlite3
+var sqlite3 = require('sqlite3').verbose();
+var db = new sqlite3.Database('orders.db');
+// Avoid race condition
+db.serialize(function() {
+    db.run(`CREATE TABLE orders(name,
+        email,
+        genre,
+        numPlayers,
+        quote)`)
+})
 
 let contractRepo = require('./repos/contractRepo');
-
 let contracts = contractRepo.get();
 
 // Handle JSON requests
