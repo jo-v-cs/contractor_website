@@ -7,7 +7,8 @@ document.getElementById('order').onsubmit = function(event) {
         name: formData.get("name"),
         email: formData.get("email"),
         comments: formData.get("comments"),
-        genre: formData.get("genre")
+        genre: formData.get("genre"),
+        numPlayers: formData.get("numPlayers")
     }
     console.log(orderObj);
     axios
