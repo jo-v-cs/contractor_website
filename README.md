@@ -25,11 +25,13 @@ This project is being built to fulfill the requirements of Code Louisville's Jav
     - Quote data field for orders generated from a function that accepts two parameters and calculates a new value
 
 ### WIP
-
+- Create 3 or more unit tests for your application (and document how to run them)
+    - Implemented using mocha
+    - `npm run test` to run unit tests
 
 
 ### Proposed:
 
 - Implement a log that records errors, invalid inputs, or other important events and writes them to a text file
-- Create 3 or more unit tests for your application (and document how to run them)
+
 
