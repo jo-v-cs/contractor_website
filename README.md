@@ -7,9 +7,9 @@ services.
 This project is being built to fulfill the requirements of Code Louisville's JavaScript course and will implement the following features:
 
 ## How to use
-1. Clone this repo
-2. Run `npm install` in repo root directory
-3. Run `'npm start'` or `'node index.js'`
+1. Clone this repository
+2. Run `npm install` in repo root directory to install dependencies
+3. Run `'npm start'` or `'node index.js'` to start the Node server
 
 ## Features
 ### Complete: 
