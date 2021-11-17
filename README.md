@@ -8,10 +8,10 @@ This project is being built to fulfill the requirements of Code Louisville's Jav
 
 ## How to use
 1. Clone this repo
-2. run `npm install` in repo root directory
-3. run `'npm start'` or `'node index.js'`
+2. Run `npm install` in repo root directory
+3. Run `'npm start'` or `'node index.js'`
 
-
+## Features
 ### Complete: 
 - Create a web server with at least one route and connect to it from your application using ExpressJS (application run on Express.js)
 - Create a form and save the values (on click of Submit button) to an external file (implemented with sqlite3)
