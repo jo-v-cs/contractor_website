@@ -13,13 +13,19 @@ This project is being built to fulfill the requirements of Code Louisville's Jav
 
 ## Features
 ### Complete: 
-- Create a web server with at least one route and connect to it from your application using ExpressJS (application run on Express.js)
-- Create a form and save the values (on click of Submit button) to an external file (implemented with sqlite3)
-- Create an array, dictionary or list, populate it with multiple values, retrieve at least one value, and use or display it in your application (order data retrieved from SQL database stored in array before being sent to client)
-- Read and parse an external file (such as JSON or CSV) into your application and display some data from that in your app (READ functionality through '/request/orderData' route)
+- Create a web server with at least one route and connect to it from your application using ExpressJS 
+    - application run on Express.js
+- Create a form and save the values (on click of Submit button) to an external file 
+    - implemented with sqlite3 npm module
+- Create an array, dictionary or list, populate it with multiple values, retrieve at least one value, and use or display it in your application 
+    - Order data retrieved from SQL database stored in array before being sent to client
+- Read and parse an external file (such as JSON or CSV) into your application and display some data from that in your app 
+    - READ functionality through '/request/orderData' route
+- Create and use a function that accepts two or more values (parameters), calculates or determines a new value based on those inputs, and returns a new value
+    - Quote data field for orders generated from a function that accepts two parameters and calculates a new value
 
 ### WIP
-- Quote creation: Create and use a function that accepts two or more values (parameters), calculates or determines a new value based on those inputs, and returns a new value
+
 
 
 ### Proposed:
