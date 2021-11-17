@@ -4,6 +4,7 @@ const port = 3000;
 const path = require('path');
 const fs = require('fs');
 const bodyParser = require('body-parser');
+const { rawListeners } = require('process');
 
 // Sqlite3
 var sqlite3 = require('sqlite3').verbose();
@@ -52,7 +53,11 @@ app.get('/request/orderData', (req, res) => {
     let currentOrder = {};
     db.all(`SELECT * FROM orders`, (err, rows) => {
         if (rows) {
+            for (let row in rows) {
+                console.log(`Row: ${row}`);
+            }
             rows.forEach((row) => {
+                currentOrder = {};
                 currentOrder.name = row.name;
                 currentOrder.email = row.email;
                 currentOrder.genre = row.genre;
