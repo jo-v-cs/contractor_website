@@ -5,7 +5,7 @@ function getQuote(numPlayers) {
 }
 
 document.getElementById('order').onsubmit = function(event) {
-    //event.preventDefault(); // Prevent default behavior
+    event.preventDefault(); // Prevent default behavior
     const formData = new FormData(document.getElementById('order'));
     let quoteValue = getQuote(formData.get("numPlayers"));
     let orderObj = {
@@ -21,6 +21,7 @@ document.getElementById('order').onsubmit = function(event) {
         .post('/request', orderObj)
         .then((response) => {
             console.log(response);
+            document.body.innerHTML = "Request saved!";
         })
         .catch((error) => {
             console.log(error);
