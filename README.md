@@ -16,10 +16,11 @@ This project is being built to fulfill the requirements of Code Louisville's Jav
 - Create a web server with at least one route and connect to it from your application using ExpressJS (application run on Express.js)
 - Create a form and save the values (on click of Submit button) to an external file (implemented with sqlite3)
 - Create an array, dictionary or list, populate it with multiple values, retrieve at least one value, and use or display it in your application (order data retrieved from SQL database stored in array before being sent to client)
+- Read and parse an external file (such as JSON or CSV) into your application and display some data from that in your app (READ functionality through '/request/orderData' route)
 
 ### WIP
 - Quote creation: Create and use a function that accepts two or more values (parameters), calculates or determines a new value based on those inputs, and returns a new value
-- Read and parse an external file (such as JSON or CSV) into your application and display some data from that in your app (READ functionality through '/request/orderData' route)
+
 
 ### Proposed:
 
