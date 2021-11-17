@@ -53,9 +53,7 @@ app.get('/request/orderData', (req, res) => {
     let currentOrder = {};
     db.all(`SELECT * FROM orders`, (err, rows) => {
         if (rows) {
-            for (let row in rows) {
-                console.log(`Row: ${row}`);
-            }
+            // Parse each row
             rows.forEach((row) => {
                 currentOrder = {};
                 currentOrder.name = row.name;
@@ -64,7 +62,6 @@ app.get('/request/orderData', (req, res) => {
                 currentOrder.numPlayers = row.numPlayers;
                 currentOrder.quote = row.quote;
                 orders.push(currentOrder);
-                console.log(orders);
             });
         }
         res.send(orders);
