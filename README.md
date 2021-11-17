@@ -18,6 +18,7 @@ or
 
 ### WIP
 - Quote creation: Create and use a function that accepts two or more values (parameters), calculates or determines a new value based on those inputs, and returns a new value
+-Read and parse an external file (such as JSON or CSV) into your application and display some data from that in your app
 
 ### Proposed:
 
