@@ -18,6 +18,7 @@ db.serialize(function() {
                 email TEXT,
                 genre TEXT,
                 numPlayers TEXT,
+                duration TEXT,
                 quote TEXT)`);
 });
 
@@ -42,8 +43,8 @@ app.get('/request', (req, res) => {
 });
 app.post('/request', (req, res) => {
     const order = req.body;
-    db.run(`INSERT INTO orders(name, email, genre, numPlayers, quote)
-            VALUES ("${order.name}", "${order.email}", "${order.genre}", "${order.numPlayers}", "${order.quote}")`);
+    db.run(`INSERT INTO orders(name, email, genre, numPlayers, duration, quote)
+            VALUES ("${order.name}", "${order.email}", "${order.genre}", "${order.numPlayers}", "${order.duration}", "${order.quote}")`);
     res.send(`Added new order`);
 });
 
@@ -60,6 +61,7 @@ app.get('/request/orderData', (req, res) => {
                 currentOrder.email = row.email;
                 currentOrder.genre = row.genre;
                 currentOrder.numPlayers = row.numPlayers;
+                currentOrder.duration = row.duration;
                 currentOrder.quote = row.quote;
                 orders.push(currentOrder);
             });
