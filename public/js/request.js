@@ -1,9 +1,7 @@
 'use strict';
 
-// Returns a quote value based on number of players and duration
-function getQuote(numPlayers, duration) {
-    return numPlayers * 50 * duration;
-}
+// Import logic
+import getQuote from "requestFunctions.mjs";
 
 document.getElementById('order').onsubmit = function(event) {
     event.preventDefault(); // Prevent default behavior
