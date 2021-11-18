@@ -3,11 +3,14 @@ const app = express();
 const port = 3000;
 const path = require('path');
 const bodyParser = require('body-parser');
-
+const { builtinModules } = require('module');
+const indexLogic = require('./indexLogic');
 
 // Sqlite3 initialization
 var sqlite3 = require('sqlite3').verbose();
 var db = new sqlite3.Database('db//orders.db');
+const dbFields = ['name', 'email', 'genre', 'numPlayers', 'duration', 'quote'];
+/*
 // Avoid race condition
 db.serialize(function() {
     db.run(`CREATE TABLE 
@@ -20,6 +23,9 @@ db.serialize(function() {
                 duration TEXT,
                 quote TEXT)`);
 });
+*/
+
+indexLogic.initDB(db, dbFields);
 
 // Handle JSON requests
 app.use(express.json());
@@ -65,7 +71,7 @@ app.get('/request/orderData', (req, res) => {
                 orders.push(currentOrder);
             });
         }
-        res.redirect(200, '/request');
+        res.send(orders);
     });
 });
 // Delete all entries in order table
@@ -85,3 +91,4 @@ app.get('/login', (req, res) => {
 app.listen(port, () => {
     console.log(`Server listening at http://localhost:${port}`);
 });
+
