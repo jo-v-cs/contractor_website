@@ -31,7 +31,7 @@ app.use(express.static("public"));
 
 // Routes
 app.get('/', (req, res) => {
-    res.status(200).sendFile(path.join(__dirname, "template.html"));
+    res.status(200).sendFile(path.join(__dirname, "index.html"));
 });
 app.post('/', (req, res) => {
     res.send("Received POST request");
@@ -65,7 +65,7 @@ app.get('/request/orderData', (req, res) => {
                 orders.push(currentOrder);
             });
         }
-        res.send(orders);
+        res.redirect(200, '/request');
     });
 });
 // Delete all entries in order table
