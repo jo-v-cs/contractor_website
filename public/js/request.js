@@ -1,7 +1,7 @@
 'use strict';
 
 // Import logic
-import getQuote from "requestFunctions.mjs";
+import { getQuote } from "./requestFunctions.mjs";
 
 document.getElementById('order').onsubmit = function(event) {
     event.preventDefault(); // Prevent default behavior
