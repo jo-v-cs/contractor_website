@@ -5,7 +5,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 
 
-// Sqlite3
+// Sqlite3 initialization
 var sqlite3 = require('sqlite3').verbose();
 var db = new sqlite3.Database('db//orders.db');
 // Avoid race condition
