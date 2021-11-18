@@ -4,7 +4,7 @@ This is a website that will be built as a model for a music contracting service 
 any other relevant information. This site will also contain information about some of the potential contracted musicians that may be hired as well as an overview of 
 services.
 
-This project is being built to fulfill the requirements of Code Louisville's JavaScript course and will implement the following features:
+This project will include the following features:
 
 ## How to use
 1. Clone this repository
