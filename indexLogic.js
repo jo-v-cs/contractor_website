@@ -3,7 +3,7 @@ function initDB(db, dbFields) {
     for (let i = 0, n = dbFields.length; i < n; i++) {
         queryFields[i] = dbFields[i] + ' ' + 'TEXT';
     }
-    db.run(`CREATE TABLE 
+    return db.run(`CREATE TABLE 
             IF NOT EXISTS orders(
                 id INTEGER PRIMARY KEY,
                 ${queryFields.toString()})`,

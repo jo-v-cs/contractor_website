@@ -4,22 +4,16 @@ const require = createRequire(import.meta.url);
 
 const assert = require('assert');
 import { getQuote } from "../public/js/requestFunctions.mjs";
+const indexLogic = require('../indexLogic');
 var sqlite3 = require('sqlite3').verbose();
 
+let db;
+
 // Dummy sqlite3 db
-beforeEach(function (){
-    let db = new sqlite3.Database(':memory:');
-    db.run(`CREATE TABLE 
-    IF NOT EXISTS orders(
-        id INTEGER PRIMARY KEY,
-        name TEXT,
-        email TEXT,
-        genre TEXT,
-        numPlayers TEXT,
-        duration TEXT,
-        quote TEXT)`);
+before(function (){
+    db = new sqlite3.Database(':memory:');
 });
-afterEach(function(){
+after(function(){
     db.run(`DROP TABLE orders`);
 });
 
@@ -38,7 +32,10 @@ describe('Test request.getQuote()', function() {
     });
 });
 
-// Test database query
-describe('Test sqlite3 query', function() {
-    it('should ')
+// Test database initialization
+describe('Test sqlite3 db initialization', function() {
+    let testFields = ['height', 'weight', 'age'];
+    it('should create a new table in existing database', function() {
+        assert(indexLogic.initDB(db, testFields));
+    });
 });
