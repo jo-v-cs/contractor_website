@@ -10,21 +10,6 @@ const indexLogic = require('./indexLogic');
 var sqlite3 = require('sqlite3').verbose();
 var db = new sqlite3.Database('db//orders.db');
 const dbFields = ['name', 'email', 'genre', 'numPlayers', 'duration', 'quote'];
-/*
-// Avoid race condition
-db.serialize(function() {
-    db.run(`CREATE TABLE 
-            IF NOT EXISTS orders(
-                id INTEGER PRIMARY KEY,
-                name TEXT,
-                email TEXT,
-                genre TEXT,
-                numPlayers TEXT,
-                duration TEXT,
-                quote TEXT)`);
-});
-*/
-
 indexLogic.initDB(db, dbFields);
 
 // Handle JSON requests
