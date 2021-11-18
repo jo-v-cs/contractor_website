@@ -8,7 +8,7 @@ This project is being built to fulfill the requirements of Code Louisville's Jav
 
 ## How to use
 1. Clone this repository
-2. [Install Node.js](https://nodejs.dev/learn/how-to-install-nodejs) 
+2. [Install Node.js](https://nodejs.dev/learn/how-to-install-nodejs) and [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 3. Run `npm install` in repo root directory to install dependencies
 4. Run `npm start` or `node index.js` to start the Node server
 
