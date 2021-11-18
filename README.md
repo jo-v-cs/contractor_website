@@ -14,15 +14,15 @@ This project is being built to fulfill the requirements of Code Louisville's Jav
 ## Features
 ### Complete: 
 - Create a web server with at least one route and connect to it from your application using ExpressJS 
-    - application run on Express.js
+    - application runs on Express.js
 - Create a form and save the values (on click of Submit button) to an external file 
-    - implemented with sqlite3 npm module
+    - HTML form values in `public/request.html` are captured in `public/js/request.js`. This is stored in a `FormData` interface object and sent to server via POST method. The server parses the object and stores it into a database using the npm sqlite3 module.
 - Create an array, dictionary or list, populate it with multiple values, retrieve at least one value, and use or display it in your application 
-    - Order data retrieved from SQL database stored in array before being sent to client
+    - A GET request to `/request/orderData` results in the server querying the database for all entries, parsing each entry into an object, then pushing that object onto an array. This array is then sent to the client.
 - Read and parse an external file (such as JSON or CSV) into your application and display some data from that in your app 
-    - READ functionality through '/request/orderData' route
+    - `/request/orderData` GET request involves querying a SQL database and sending the parsed data to the client.
 - Create and use a function that accepts two or more values (parameters), calculates or determines a new value based on those inputs, and returns a new value
-    - Quote data field for orders generated from a function that accepts two parameters and calculates a new value
+    - `request.js` `getQuote()` function accepts two parameters and calculates and returns a new value from those inputs in order to generate a monetary quote for the user.
 
 ### WIP
 - Create 3 or more unit tests for your application (and document how to run them)
