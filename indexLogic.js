@@ -6,7 +6,12 @@ function initDB(db, dbFields) {
     db.run(`CREATE TABLE 
             IF NOT EXISTS orders(
                 id INTEGER PRIMARY KEY,
-                ${queryFields.toString()})`);
+                ${queryFields.toString()})`,
+            (err) => {
+                if (err) {
+                    console.log("Unable to create table");
+                }
+            });
 }
 
 module.exports = { initDB };
