@@ -3,6 +3,7 @@
 // Import logic
 import { getQuote } from "./requestFunctions.mjs";
 
+// POST form
 document.getElementById('order').onsubmit = function(event) {
     event.preventDefault(); // Prevent default behavior
     const formData = new FormData(document.getElementById('order'));
@@ -28,12 +29,29 @@ document.getElementById('order').onsubmit = function(event) {
         });
 };
 
+// Get order History
 document.getElementById('orderhistory-button').onclick = (event) => {
     event.preventDefault();
     axios
         .get('/request/orderData')
         .then((response) => {
             displayResponse(response.data);
+        })
+        .catch((error) => {
+            console.log(error);
+        })
+}
+
+// Delete Order history
+document.getElementById('deletehistory-button').onclick = (event) => {
+    event.preventDefault();
+    axios
+        .delete('/request/orderData')
+        .then((response) => {
+            if (response.status === 204) {
+                console.log("Order history deleted successfully.");
+            }
+            console.log(response);
         })
         .catch((error) => {
             console.log(error);
