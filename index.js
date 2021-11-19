@@ -11,7 +11,8 @@ const indexLogic = require('./indexLogic');
 var sqlite3 = require('sqlite3').verbose();
 var db = new sqlite3.Database('db//orders.db');
 const dbFields = ['name', 'email', 'genre', 'numPlayers', 'duration', 'quote'];
-indexLogic.initDB(db, dbFields, 'orders');
+const tableName = 'orders';
+indexLogic.initDB(db, dbFields, `${tableName}`);
 
 // Handle JSON requests
 app.use(express.json());
@@ -34,7 +35,7 @@ app.get('/request', (req, res) => {
 });
 app.post('/request', (req, res) => {
     const order = req.body;
-    db.run(`INSERT INTO orders(name, email, genre, numPlayers, duration, quote)
+    db.run(`INSERT INTO ${tableName}(name, email, genre, numPlayers, duration, quote)
             VALUES ("${order.name}", "${order.email}", "${order.genre}", "${order.numPlayers}", "${order.duration}", "${order.quote}")`);
     res.send(`Added new order`);
 });
@@ -43,7 +44,7 @@ app.get('/request/orderData', (req, res) => {
     // Read db file
     let orders = [];
     let currentOrder = {};
-    db.all(`SELECT * FROM orders`, (err, rows) => {
+    db.all(`SELECT * FROM ${tableName}`, (err, rows) => {
         if (rows) {
             // Parse each row
             rows.forEach((row) => {
@@ -62,7 +63,7 @@ app.get('/request/orderData', (req, res) => {
 });
 // Delete all entries in order table
 app.delete('/request/orderData', (req, res) =>  {
-    db.run(`DELETE FROM orders`);
+    db.run(`DELETE FROM ${tableName}`);
     res.status(204).send();
 });
 
