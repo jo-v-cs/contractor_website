@@ -11,6 +11,9 @@ function initDB(db, dbFields, tableName) {
                 if (err) {
                     console.log("Unable to create table");
                 }
+                else {
+                    console.log("Table created successfully");
+                }
             });
 }
 

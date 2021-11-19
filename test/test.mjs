@@ -9,13 +9,7 @@ var sqlite3 = require('sqlite3').verbose();
 
 let db;
 
-// Dummy sqlite3 db
-before(function (){
-    db = new sqlite3.Database(':memory:');
-});
-after(function(){
-    db.run(`DROP TABLE orders`);
-});
+
 
 
 // Test getQuote()
@@ -33,9 +27,24 @@ describe('Test request.getQuote()', function() {
 });
 
 // Test database initialization
-describe('Test sqlite3 db initialization', function() {
-    let testFields = ['height', 'weight', 'age'];
+describe('Test sqlite3 db initialization', function() 
+{
+
+    db = new sqlite3.Database(':memory:');
+    const tableName = 'people';
+    const testFields = ['height', 'weight', 'age'];
+
     it('should create a new table in existing database', function() {
-        assert(indexLogic.initDB(db, testFields));
+        assert(indexLogic.initDB(db, testFields, tableName));
+    });
+
+    
+    after(function(){
+        db.run(`DROP TABLE ${tableName}`, (err) => {
+            if (err) {
+                console.log("Could not drop table");
+                console.log(err);
+            }
+        });
     });
 });
