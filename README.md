@@ -11,7 +11,7 @@ This project will include the following features:
 2. [Install Node.js](https://nodejs.dev/learn/how-to-install-nodejs) and [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 3. Run `npm install` in repo root directory to install dependencies
 4. Run `npm start` or `node index.js` to start the Node server
-5. While server is running, navigate to `http://localhost$:${port}`, where `${port}` is `3000` by default.
+5. While server is running, navigate to `http://localhost:${port}`, where `${port}` is `3000` by default.
 
 ## Features
 ### Complete: 
