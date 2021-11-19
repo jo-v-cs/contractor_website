@@ -45,7 +45,9 @@ document.getElementById('orderhistory-button').onclick = (event) => {
 // Delete Order history
 document.getElementById('deletehistory-button').onclick = (event) => {
     event.preventDefault();
-    axios
+    if (confirm("This will delete your order history permanently. Proceed?")) {
+        clearResponseArea();
+        axios
         .delete('/request/orderData')
         .then((response) => {
             if (response.status === 204) {
@@ -56,6 +58,8 @@ document.getElementById('deletehistory-button').onclick = (event) => {
         .catch((error) => {
             console.log(error);
         })
+    }
+
 }
 
 function displayResponse(responseObject) {
