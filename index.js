@@ -11,7 +11,7 @@ const indexLogic = require('./indexLogic');
 var sqlite3 = require('sqlite3').verbose();
 var db = new sqlite3.Database('db//orders.db');
 const dbFields = ['name', 'email', 'genre', 'numPlayers', 'duration', 'quote'];
-indexLogic.initDB(db, dbFields);
+indexLogic.initDB(db, dbFields, 'orders');
 
 // Handle JSON requests
 app.use(express.json());
