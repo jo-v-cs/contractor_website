@@ -1,5 +1,5 @@
 'use strict';
-
+ 
 // Import logic
 import { getQuote } from "./requestFunctions.mjs";
 
@@ -21,9 +21,21 @@ document.getElementById('order').onsubmit = function(event) {
         .post('/request', orderObj)
         .then((response) => {
             console.log(response);
-            document.body.innerHTML = "Request saved!";
+            document.querySelector('section').innerHTML = "Request saved!";
         })
         .catch((error) => {
             console.log(error);
         });
 };
+
+document.getElementById('orderhistory-button').onclick = (event) => {
+    event.preventDefault();
+    axios
+        .get('/request/orderData')
+        .then((response) => {
+            alert(JSON.stringify(response));
+        })
+        .catch((error) => {
+            console.log(error);
+        })
+}
