@@ -33,9 +33,34 @@ document.getElementById('orderhistory-button').onclick = (event) => {
     axios
         .get('/request/orderData')
         .then((response) => {
-            alert(JSON.stringify(response));
+            displayResponse(response.data);
         })
         .catch((error) => {
             console.log(error);
         })
+}
+
+function displayResponse(responseObject) {
+    clearResponseArea(); // Clear response area to avoid clutter
+    let parsedResponse = [];
+    responseObject.forEach((entry) => {
+        parsedResponse.push(entry);
+    });
+    console.log(parsedResponse);
+    let responseArea = document.getElementById('orderhistory-response');
+    let newHeading = document.createElement('h2');
+    newHeading.appendChild(document.createTextNode('Order History'));
+    responseArea.appendChild(newHeading);
+    let newUl = document.createElement('ul');
+    responseArea.appendChild(newUl);
+    parsedResponse.forEach((object) => {
+        let newLi = document.createElement('li');
+        let newLiContent = document.createTextNode(JSON.stringify(object));
+        newLi.appendChild(newLiContent);
+        newUl.appendChild(newLi);
+    })
+}
+
+function clearResponseArea() {
+    document.getElementById('orderhistory-response').innerHTML = "";
 }

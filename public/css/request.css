@@ -1,0 +1,8 @@
+#request-section {
+    display: flex;
+    flex-direction: column;
+}
+
+#order {
+    flex-grow: 2;
+}
