@@ -6,3 +6,9 @@
 #order {
     flex-grow: 2;
 }
+
+#deletehistory-button {
+    margin: 25px;
+    background-color: rgb(228, 0, 0);
+    border: 2px solid red;
+}
